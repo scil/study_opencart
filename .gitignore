@@ -3,7 +3,7 @@
 #/upload/config.php
 #/upload/admin/config.php
 
-/storage/cache/*
+###/storage/cache/*
 /storage/logs/*
 /storage/session/*
 /storage/vendor/*
@@ -12,7 +12,7 @@
 
 
 #/ Image Cache Files
-/upload/image/cache/*
+###/upload/image/cache/*
 !/upload/image/cache/index.html
 
 #/ Backup Files
@@ -20,7 +20,7 @@
 !/upload/system/storage/backup/index.html
 
 #/ System Cache Files
-/upload/system/storage/cache/*
+###/upload/system/storage/cache/*
 !/upload/system/storage/cache/index.html
 
 #/ Download Files
