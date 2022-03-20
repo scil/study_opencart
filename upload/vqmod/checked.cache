@@ -14,7 +14,6 @@ system\library\log.php
 system\library\request.php
 system\library\response.php
 system\library\db.php
-system\library\db\pdo.php
 system\library\session.php
 system\library\session\db.php
 system\library\cache.php

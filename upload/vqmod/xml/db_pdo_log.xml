@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <id>SYSTEM DB PDO LOG vQmod for OC 3.x</id>
+    <code>db_pdo_query_log</code>
+    <version>3.2.x and above</version>
+    <vqmver required="true">2.6.0</vqmver>
+    <author>Scil</author>
+
+    <file name="system/library/db/pdo.php">
+        <operation  error="skip" info="For non OCMod includes/requires">
+            <search position="after"><![CDATA[public function query($sql, $params = array()) {]]></search>
+            <add><![CDATA[
+$logfile = DIR_LOGS."SQL_log.txt";
+$starttime  = microtime(true);
+]]></add>
+        </operation>
+
+        <operation>
+            <search position="before"><![CDATA[return $result;]]></search>
+            <add><![CDATA[
+$endtime  = microtime(true);
+$log = sprintf(date("Y-m-d H:i:s",time())." QUERY EXECUTED IN %0.4f - %s", $endtime-$starttime, $sql);
+if(!file_exists($logfile)) { file_put_contents($logfile,''); }
+$f = fopen($logfile, 'a');
+fwrite($f, $log."\n");
+fclose($f);
+                ]]></add>
+        </operation>
+    </file>
+
+</modification>
