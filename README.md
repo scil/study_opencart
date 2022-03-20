@@ -7,7 +7,7 @@ current version: 3.0.3.8
   1. v2.6.6 https://github.com/vqmod/vqmod/releases
   2. 解压到 upload 目录, linux需要配置好权限 http://docs.opencart.com/en-gb/administration/vqmod/
   3. visit `/vqmod/install`
-
+- log db pdo query 2022.03.20
 
 ## Env
 - php

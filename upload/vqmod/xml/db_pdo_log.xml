@@ -7,7 +7,7 @@
     <author>Scil</author>
 
     <file name="system/library/db/pdo.php">
-        <operation  error="skip" info="For non OCMod includes/requires">
+        <operation>
             <search position="after"><![CDATA[public function query($sql, $params = array()) {]]></search>
             <add><![CDATA[
 $logfile = DIR_LOGS."SQL_log.txt";
