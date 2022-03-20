@@ -47,6 +47,8 @@
 #/ upload/install/*
 
 /upload/vqmod/logs/*
+/upload/vqmod/checked.cache
+/upload/vqmod/mods.cache
 
 #/ IDE Project filescd  xampp
 
