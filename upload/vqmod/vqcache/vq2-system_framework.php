@@ -1,5 +1,8 @@
 <?php
 //const SCIL_ENABLE_DB_PDO_LOG = false;
+
+define('SCIL_OC_START_TIME', microtime(true));
+
 // Registry
 $registry = new Registry();
 

@@ -50,7 +50,7 @@ final class PDO {
 
 	public function query($sql, $params = array()) {
 
-$logfile = DIR_LOGS."SQL_log.txt";
+$logfile = DIR_LOGS . "SQL_log_"  .  (defined('SCIL_OC_START_TIME')?SCIL_OC_START_TIME:"") . ".txt";
 $starttime  = microtime(true);
 
 		$this->statement = $this->connection->prepare($sql);
@@ -76,12 +76,14 @@ $starttime  = microtime(true);
 
 		if ($result) {
 
-$endtime  = microtime(true);
-$log = sprintf(date("Y-m-d H:i:s",time())." QUERY EXECUTED IN %0.4f - %s", $endtime-$starttime, $sql);
-if(!file_exists($logfile)) { file_put_contents($logfile,''); }
-$f = fopen($logfile, 'a');
-fwrite($f, $log."\n");
-fclose($f);
+if(!defined('SCIL_ENABLE_DB_PDO_LOG') || SCIL_ENABLE_DB_PDO_LOG ===true){
+    $endtime  = microtime(true);
+    $log = sprintf(date("Y-m-d H:i:s",time())." QUERY EXECUTED IN %0.4f - %s", $endtime-$starttime, $sql);
+    if(!file_exists($logfile)) { file_put_contents($logfile,''); }
+    $f = fopen($logfile, 'a');
+    fwrite($f, $log."\n");
+    fclose($f);
+}
                 
 			return $result;
 		} else {
@@ -90,12 +92,14 @@ fclose($f);
 			$result->rows = array();
 			$result->num_rows = 0;
 
-$endtime  = microtime(true);
-$log = sprintf(date("Y-m-d H:i:s",time())." QUERY EXECUTED IN %0.4f - %s", $endtime-$starttime, $sql);
-if(!file_exists($logfile)) { file_put_contents($logfile,''); }
-$f = fopen($logfile, 'a');
-fwrite($f, $log."\n");
-fclose($f);
+if(!defined('SCIL_ENABLE_DB_PDO_LOG') || SCIL_ENABLE_DB_PDO_LOG ===true){
+    $endtime  = microtime(true);
+    $log = sprintf(date("Y-m-d H:i:s",time())." QUERY EXECUTED IN %0.4f - %s", $endtime-$starttime, $sql);
+    if(!file_exists($logfile)) { file_put_contents($logfile,''); }
+    $f = fopen($logfile, 'a');
+    fwrite($f, $log."\n");
+    fclose($f);
+}
                 
 			return $result;
 		}

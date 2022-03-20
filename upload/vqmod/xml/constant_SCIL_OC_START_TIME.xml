@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <id>add Constant SCIL_OC_START_TIME  vQmod for OC 3.x</id>
+    <code> Constant_SCIL_OC_START_TIME</code>
+    <version>3.2.x and above</version>
+    <vqmver required="true">2.6.0</vqmver>
+    <author>Scil</author>
+
+    <file name="system/framework.php">
+        <operation>
+            <search position="before"><![CDATA[// Registry]]></search>
+            <add><![CDATA[
+define('SCIL_OC_START_TIME', microtime(true));
+]]></add>
+        </operation>
+
+    </file>
+
+</modification>

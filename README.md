@@ -2,20 +2,23 @@
 
 current version: 3.0.3.8
 
-- �������� 2022.03.19
+- 中文语言 2022.03.19
 - vQmod 2022.03.20
   1. v2.6.6 https://github.com/vqmod/vqmod/releases
-  2. ��ѹ�� upload Ŀ¼, linux��Ҫ���ú�Ȩ�� http://docs.opencart.com/en-gb/administration/vqmod/
+  2. 解压到 upload 目录, linux需要配置好权限 http://docs.opencart.com/en-gb/administration/vqmod/
   3. visit `/vqmod/install`
 - log db pdo query 2022.03.20
+  - 如何禁用  `const SCIL_ENABLE_DB_PDO_LOG = false ` 目前此变量自动添加在了 system/framework.php
+  - 每次请求生成一个日志文件:  利用 constant_SCIL_OC_START_TIME.xml 添加基本能够对应每次请求的变量 `SCIL_OC_START_TIME`
 
 ## Env
-- php
+- php  
+  - `php -i | find "xdebug"` 确认 xdebug 工作正常，xdebug3配置变了名字
 - mysql   `mysql -u root -p -e "create database japan1;"`
-- ������ ���ַ��� �� php -S �� php-fpm
+- 服务器 两种方案 用 php -S 或 php-fpm
   - php cli server: start-php-server.bat
   - linux
-    - php-fpm �� nginx/readme
+    - php-fpm 见 nginx/readme
 
 ## install for server with php-fpm 
 
